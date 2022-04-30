@@ -1,7 +1,6 @@
-# Mi-Branch 2
+# Mi-BRANCH
 
-prueba de branches 2
+prueba de branch
+borre las cosas del main para el branch dev
 
-seguramente siga la prueba
-
-pero sin nada mas
+cree este nuevo branch de prueba

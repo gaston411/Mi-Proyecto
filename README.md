@@ -1,4 +1,7 @@
 # Mi-Proyecto
+
 prueba de repositorio
 
-volvi a modifcar
+seguimos viendo como funciona git
+
+borramos unas cuantas cosa

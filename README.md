@@ -1,6 +1,6 @@
-# Mi-Proyecto
+# Mi-Branch 2
 
-prueba de repositorio
+prueba de branches 2
 
 seguramente siga la prueba
 

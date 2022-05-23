@@ -89,5 +89,18 @@ writer.save()
 
 
 
+# funcion para encontrar titulos
+# Encontrar la ubicacion del titulo en el documento
+titulosPosicion=[]
+
+for titulo in titulosMayusculas[0]:
+    inicioTitulo = dfLimpio[0].index(titulo)
+    palabrasPorTitulo = len(titulo)
+    finalTitulo = inicio + palabrasPorTitulo
+    titulosPosicion.append((titulo, inicioTitulo, finalTitulo, palabrasPorTitulo))
+
+pprint(titulosPosicion)
+
+
 
 

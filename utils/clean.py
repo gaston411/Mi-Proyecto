@@ -6,7 +6,7 @@ los textos.
 import nltk
 import re
 import json
-from utils import utils_fun
+#from utils import utils_fun
 
 stops = nltk.corpus.stopwords.words('spanish')
 # black_list = json.load(open('black_list.json', 'r'))['black_list']
@@ -46,5 +46,19 @@ def general(txt: str, bert=False, nums=False) -> str:
     txt = re.sub(' +', ' ', txt)
     txt = txt.strip()
     return txt
+
+def limpiarTexto2(text:str) -> str:
+    text = re.sub('\d\n','',text)
+    text = re.sub(' +\n','\n',text)
+    text = re.sub('\n+','\n',text)
+    text = re.sub('\n',' \n',text)
+    text = re.sub('\d \n','',text)
+    text = re.sub('\x0c','',text)
+    text = re.sub('\u200b\n','',text)
+    text = re.sub(r'[nN]º|[nN][. ]º','',text)
+    text = re.sub('[a-zA-Z]+.com','',text)
+    #text = re.sub('[\.)-]+[\s]{0,3}','-',text) #PRUEBA PARA NORMALIZAR NRO ROMANO.
+    return text
+
 
 

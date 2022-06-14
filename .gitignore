@@ -3,5 +3,6 @@
 *.txt
 *.html
 *.xlsx
+*.png
 **/resultados
 .git/

@@ -27,7 +27,8 @@ def remove_stops(texto: str) -> str:
     return ' '.join(texto)
 
 
-def general(txt: str, bert=False, nums=False) -> str:
+import re
+def general(txt: str, bert=False, nums=True) -> str:
     """
     Elimina caracteres no deseados
     Params:
@@ -38,27 +39,16 @@ def general(txt: str, bert=False, nums=False) -> str:
     if not bert:
         txt = txt.translate(str.maketrans(
             'áéíóúýàèìòùÁÉÍÓÚÀÈÌÒÙÝ', 'aeiouyaeiouAEIOUAEIOUY'))
-        txt = txt.lower()
         txt = re.sub(r'[^\w\s]', '', txt)
 
-    txt = txt.replace('\r', ' ').replace('\n', ' ').replace("\v", ' ').replace(
+    txt = txt.replace('\r', ' ').replace("\v", ' ').replace(
         "\t", ' ').replace("\f", ' ').replace("\a", ' ').replace("\b", ' ')
     txt = re.sub(' +', ' ', txt)
     txt = txt.strip()
     return txt
 
-def limpiarTexto2(text:str) -> str:
-    text = re.sub('\d\n','',text)
-    text = re.sub(' +\n','\n',text)
-    text = re.sub('\n+','\n',text)
-    text = re.sub('\n',' \n',text)
-    text = re.sub('\d \n','',text)
-    text = re.sub('\x0c','',text)
-    text = re.sub('\u200b\n','',text)
-    text = re.sub(r'[nN]º|[nN][. ]º','',text)
-    text = re.sub('[a-zA-Z]+.com','',text)
-    #text = re.sub('[\.)-]+[\s]{0,3}','-',text) #PRUEBA PARA NORMALIZAR NRO ROMANO.
-    return text
+
+
 
 
 

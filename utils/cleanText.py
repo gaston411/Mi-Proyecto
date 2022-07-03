@@ -5,14 +5,14 @@ Se eliminan \r, \t, \v, \f, \a
 '''
 import re, string, unicodedata
 
-def limpiarTexto1(txt: str, bert=False, nums=False) -> str:
+def limpiarTexto1(txt: str, bert=False, nums=True) -> str:
     """
     Elimina caracteres no deseados
     Params:
         **txt**:texto a ser limpiado de caracteres no desaeados
     """
     if nums:
-        txt = re.sub(r'\d+', ' ', txt)
+        txt = re.sub(r'[\d]{3,10}', '', txt)
     if not bert:
         txt = txt.translate(str.maketrans(
             'áéíóúýàèìòùÁÉÍÓÚÀÈÌÒÙÝ', 'aeiouyaeiouAEIOUAEIOUY'))
@@ -38,13 +38,12 @@ def limpiarTexto2(text:str) -> str:
     text = re.sub('\d\n','',text)
     text = re.sub(' +\n','\n',text)
     text = re.sub('\n+','\n',text)
-    text = re.sub('\n',' \n',text)
     text = re.sub('\d \n','',text)
     text = re.sub('\x0c','',text)
-    text = re.sub('\u200b\n','',text)
+    text = re.sub('\u200b','',text)
     text = re.sub(r'[nN]º|[nN][. ]º','',text)
     text = re.sub('[a-zA-Z]+.com','',text)
-    text = re.sub('\d{2,15}','',text)
+    text = re.sub(r'\d{2,15}','',text)
     return text
 
 import re
